@@ -71,7 +71,7 @@ def main():
         print(bzweixin(newBZ))
     #抖音部分
     d = dymonitor.dyMonitor()
-    with open('.douyin.txt', 'r') as f3:
+    with open('douyin.txt', 'r') as f3:
         text = f3.read()
         if text == '':
             d.getDYQueue()
