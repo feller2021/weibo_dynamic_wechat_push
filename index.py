@@ -7,6 +7,7 @@ import urllib.parse
 import json
 import time
 
+spkey = '88806f3e51f72337714104837f800677'
 
 
 #推送函数
@@ -26,29 +27,28 @@ def notify(text):
         flag = False
     return flag
 
-
 def wbweixin(dicts):
-    text = "宁关注的：" + dicts['nickName'] + "发布微博啦\n"
+    text = "" + dicts['nickName'] + "发布微博\n"
     text += "发送时间: " + dicts['created_at'] + "\n"
     flag = notify(text)
     return flag
 
 
 def bzweixin(dicts):
-    text = "宁关注的：" + dicts['nickName'] + "更新B站啦\n"
+    text = "" + dicts['nickName'] + "更新B站\n"
     flag = notify(text)
     return flag
 
 
 def dyweixin(dicts):
-    text = "宁关注的：" + dicts['nickName'] + "更新抖音啦\n"
+    text = "" + dicts['nickName'] + "更新抖音\n"
     flag = notify(text)
     return flag
 
 
 
 
-def main():
+def main(*args):
     #微博部分
     w = wbmonitor.weiboMonitor()
     w.getweiboInfo()
