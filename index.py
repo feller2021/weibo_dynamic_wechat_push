@@ -48,7 +48,7 @@ def dyweixin(dicts):
 
 
 
-def main(*args):
+def main():
     #微博部分
     w = wbmonitor.weiboMonitor()
     w.getweiboInfo()
