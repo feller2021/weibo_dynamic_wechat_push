@@ -15,7 +15,7 @@ class weiboMonitor():
 			'Connection': 'close',
 			'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
 		}
-		self.uid = ['6395178860']#这里添加关注人的uid
+		self.uid = ['6395178860','1906286443','6626748101','6626748101','7519314407'] #这里添加关注人的uid
 	#获取访问连接
 	def getweiboInfo(self):
 		try:
@@ -61,7 +61,7 @@ class weiboMonitor():
 						if str(j['mblog']['id']) not in itemIds:
 							with open('wbIds.txt','a') as f:
 								f.write(j['mblog']['id']+'\n')
-							self.echoMsg('Info','发微博啦!!!')
+							self.echoMsg('Info','发微博!')
 							self.echoMsg('Info','目前有 %s 条微博'%(len(itemIds)+1))
 							returnDict['created_at'] = j['mblog']['created_at']
 							returnDict['text'] = j['mblog']['text']
