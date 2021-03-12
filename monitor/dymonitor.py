@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Author    : B1ain
-# Action    : 狗子抖音
-# Desc      : 只关注狗子抖音
+
 
 import requests,json,sys,re
 
@@ -44,8 +42,8 @@ class dyMonitor():
 			if str(num) != str(douyin):
 				with open('douyin.txt','w') as f:
 					f.write(str(num))
-				self.echoMsg('Info','狗子抖音更新啦!!!')
-				returnDict['nickName'] = '狗子'
+				self.echoMsg('Info','抖音更新！')
+				returnDict['nickName'] = ''
 				return returnDict
 		except Exception as e:
 			self.echoMsg('Error',e)
