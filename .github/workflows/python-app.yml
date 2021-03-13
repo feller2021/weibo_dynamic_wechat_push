@@ -1,4 +1,4 @@
-name: 签到
+name: 微博计划任务
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [ main ]
   schedule:
-    - cron: 0,6,12,18,24,36,42,48,54 * * * *
+    - cron: 0 0/6 * * *?
   watch:
     types: started
 
