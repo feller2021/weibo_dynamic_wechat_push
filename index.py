@@ -52,7 +52,7 @@ def main(*args):
     #微博部分
     w = wbmonitor.weiboMonitor()
     w.getweiboInfo()
-    with open('wbIds.txt', 'r') as f:
+    with open('liurenjie520/task/raw/main/wbIds.txt', 'r') as f:
         text = f.read()
         if text == '':
             w.getWBQueue()
