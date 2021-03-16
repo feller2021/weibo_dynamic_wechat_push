@@ -18,3 +18,4 @@ https://api.bilibili.com/x/space/arc/search?mid=149558293:524
 https://api.bilibili.com/x/space/arc/search?mid=25876945:229
 https://api.bilibili.com/x/space/arc/search?mid=483311105:39
 https://api.bilibili.com/x/space/arc/search?mid=388657573:310
+https://api.bilibili.com/x/space/arc/search?mid=25910292:536
