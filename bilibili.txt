@@ -50,3 +50,4 @@ https://api.bilibili.com/x/space/arc/search?mid=430726:0
 https://api.bilibili.com/x/space/arc/search?mid=946974:370
 https://api.bilibili.com/x/space/arc/search?mid=388657573:311
 https://api.bilibili.com/x/space/arc/search?mid=149558293:527
+https://api.bilibili.com/x/space/arc/search?mid=388657573:312
