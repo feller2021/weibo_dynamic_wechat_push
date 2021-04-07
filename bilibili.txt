@@ -100,3 +100,4 @@ https://api.bilibili.com/x/space/arc/search?mid=11442277:0
 https://api.bilibili.com/x/space/arc/search?mid=386234695:0
 https://api.bilibili.com/x/space/arc/search?mid=149558293:533
 https://api.bilibili.com/x/space/arc/search?mid=125526:299
+https://api.bilibili.com/x/space/arc/search?mid=7887262:0
