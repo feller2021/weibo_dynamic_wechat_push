@@ -270,3 +270,4 @@ https://api.bilibili.com/x/space/arc/search?mid=946974:390
 https://api.bilibili.com/x/space/arc/search?mid=388657573:343
 https://api.bilibili.com/x/space/arc/search?mid=25876945:246
 https://api.bilibili.com/x/space/arc/search?mid=125526:307
+https://api.bilibili.com/x/space/arc/search?mid=388657573:344
