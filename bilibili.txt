@@ -381,3 +381,4 @@ https://api.bilibili.com/x/space/arc/search?mid=25910292:570
 https://api.bilibili.com/x/space/arc/search?mid=149558293:565
 https://api.bilibili.com/x/space/arc/search?mid=4401694:68
 https://api.bilibili.com/x/space/arc/search?mid=319076:259
+https://api.bilibili.com/x/space/arc/search?mid=388657573:363
