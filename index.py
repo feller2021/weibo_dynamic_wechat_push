@@ -39,10 +39,10 @@ def notify(text):
     return flag
 
 def wbweixin(dicts):
-    text = "" + dicts['nickName'] + "发布微博\n"
+    text = "" +"@"+ dicts['nickName'] + "发微博了\n"
     created_at1=dicts['created_at']
     format_time = trans_format(created_at1, '%a %b %d %H:%M:%S +0800 %Y', '%Y-%m-%d %H:%M:%S')
-    text += "发送时间: " + format_time + "\n"
+    text += "发送时间: " + format_time + "\n"+dicts['text']
     # dicts['created_at']
     flag = notify(text)
     return flag
