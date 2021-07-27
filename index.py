@@ -9,6 +9,17 @@ import time
 
 spkey = '88806f3e51f72337714104837f800677'
 
+def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
+    """
+    @note 时间格式转化
+    :param time_string:
+    :param from_format:
+    :param to_format:
+    :return:
+    """
+    time_struct = time.strptime(time_string,from_format)
+    times = time.strftime(to_format, time_struct)
+    return times
 
 #推送函数
 def notify(text):
@@ -29,7 +40,10 @@ def notify(text):
 
 def wbweixin(dicts):
     text = "" + dicts['nickName'] + "发布微博\n"
-    text += "发送时间: " + dicts['created_at'] + "\n"
+    created_at1=dicts['created_at']
+     format_time = trans_format(created_at1, '%a %b %d %H:%M:%S +0800 %Y', '%Y-%m-%d %H:%M:%S')
+    text += "发送时间: " + format_time + "\n"
+    # dicts['created_at']
     flag = notify(text)
     return flag
 
