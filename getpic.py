@@ -14,6 +14,7 @@ import requests
 
 
 def getweibopic(idd,urll):
+    global a
     base_url = urll+'_-_main&page='
 
     header = {
