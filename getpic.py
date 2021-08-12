@@ -11,10 +11,10 @@ import pprint
 
 #需要将下面url里面的 uid&value=后面的数字换成所要爬取用户的uid，，还需要将containerid=这个替换成所要爬取用的的fid
 import requests
-
+global a
 
 def getweibopic(idd,urll):
-    global a
+    
     base_url = urll+'_-_main&page='
 
     header = {
