@@ -66,12 +66,16 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # a = now
     dc = a.strftime("%H:%M:%S")
     tzshj = dc
+    print("github通知时间是："+tzshj)
     d1=a.strftime('%Y-%m-%d %H:%M:%S')
+    print("github时间d1是："+d1)
     d3 = datetime.strptime(d1, '%Y-%m-%d %H:%M:%S')
+    print("github时间d3是："+d3)
 
     d2 = datetime.strptime(format_time, "%Y-%m-%d %H:%M:%S")
 
     timedelay = d3 - d2
+    
     # timedelay=timedelay.strftime("%H:%M:%S")
 
     # delay11 = timedelay.strftime('%M')
