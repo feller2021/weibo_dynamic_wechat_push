@@ -11,10 +11,10 @@ import pprint
 
 #需要将下面url里面的 uid&value=后面的数字换成所要爬取用户的uid，，还需要将containerid=这个替换成所要爬取用的的fid
 import requests
-global a
+
 
 def getweibopic(idd,urll):
-    
+
     base_url = urll+'_-_main&page='
 
     header = {
@@ -42,6 +42,7 @@ def getweibopic(idd,urll):
         s = '"id":"%s"(.*?)number_display_strategy' % id
         list7 = re.compile(s).findall(resp)
         tt = ''
+        a=[]
 
     for i in list7:
         tt = tt + i
@@ -50,6 +51,7 @@ def getweibopic(idd,urll):
 
         list99 = []
         a = list(filter(lambda url: url.find('/large') != -1, lucky_num))
+        print(type(a))
 
     print(a)
     imgpost='https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
