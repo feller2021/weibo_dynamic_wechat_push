@@ -61,13 +61,13 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # print(type(picnum2))
     # print(type(format_time))
 
-    now = datetime.now()
-    a= now + timedelta(hours=16)
+    now = datetime.now()+ timedelta(hours=32)
+    # a= now + timedelta(hours=32)
     # a = now
-    dc = a.strftime("%H:%M:%S")
+    dc = now.strftime("%H:%M:%S")
     tzshj = dc
     print("github通知时间是："+tzshj)
-    d1=a.strftime('%Y-%m-%d %H:%M:%S')
+    d1=now.strftime('%Y-%m-%d %H:%M:%S')
     print("github时间d1是："+d1)
     d3 = datetime.strptime(d1, '%Y-%m-%d %H:%M:%S')
     print(d3)
