@@ -24,6 +24,7 @@ def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
 
 
 def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, picnum, idd):
+    global a
     AAA = txt['mblog']['text']
     span = re.sub('<span(.*?)</span>', '', AAA)
     atab = re.sub('<a(.*?)</a>', '', span)
