@@ -21,7 +21,7 @@ def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
     time_struct = time.strptime(time_string, from_format)
     times = time.strftime(to_format, time_struct)
     return times
-    
+
 
 def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, picnum, idd):
     AAA = txt['mblog']['text']
@@ -55,15 +55,10 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     attitudes2 = str(attitudes)
     picnum2 = str(picnum)
 
-    # print(type(reposts2))
-    # print(type(comments2))
-    # print(type(attitudes2))
-    # print(type(picnum2))
-    # print(type(format_time))
 
-    now = datetime.now()+ timedelta(hours=8)
-    # a= now + timedelta(hours=32)
-    # a = now
+
+    now = datetime.now() + timedelta(hours=8)
+
     dc = now.strftime("%H:%M:%S")
     tzshj = dc
     print("github通知时间是："+tzshj)
@@ -76,16 +71,12 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     timedelay = d3 - d2
 
-    # timedelay=timedelay.strftime("%H:%M:%S")
-
-    # delay11 = timedelay.strftime('%M')
-    # print(type(timedelay))
     timedelay=str(timedelay)
     print(timedelay)
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay  + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
+    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
