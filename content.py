@@ -69,6 +69,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     d2 = datetime.datetime.strptime(format_time, "%Y-%m-%d %H:%M:%S")
     delta = now - d2
     delta = delta.seconds / 60
+    delta = delta -480
     delta = int(delta)
     delta = str(delta)
     timedelay = delta
