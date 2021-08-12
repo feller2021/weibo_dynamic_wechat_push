@@ -21,7 +21,7 @@ def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
     time_struct = time.strptime(time_string, from_format)
     times = time.strftime(to_format, time_struct)
     return times
-
+    global a
 
 def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, picnum, idd):
     AAA = txt['mblog']['text']
@@ -62,7 +62,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # print(type(format_time))
 
     now = datetime.now()
-    a = now + timedelta(hours=16)
+    a= now + timedelta(hours=16)
     # a = now
     dc = a.strftime("%H:%M:%S")
     tzshj = dc
@@ -79,7 +79,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # timedelay=timedelay.strftime("%H:%M:%S")
 
     # delay11 = timedelay.strftime('%M')
-    print(type(timedelay))
+    # print(type(timedelay))
     timedelay=str(timedelay)
     print(timedelay)
 
