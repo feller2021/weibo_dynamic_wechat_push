@@ -4,7 +4,7 @@
 # Action    : 微博
 # Desc      : 微博主模块
 import time
-import datetime
+from datetime import datetime, timedelta
 
 import requests, json, sys
 import re
@@ -23,7 +23,7 @@ def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
     return times
 
 
-def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, picnum,idd):
+def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, picnum, idd):
     AAA = txt['mblog']['text']
     span = re.sub('<span(.*?)</span>', '', AAA)
     atab = re.sub('<a(.*?)</a>', '', span)
@@ -45,8 +45,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # print(comments)
     # print(attitudes)
     # print(picnum)
-    #https://m.weibo.cn/status/4669358909428804
-    detalurl="https://m.weibo.cn/status/"+idd
+    # https://m.weibo.cn/status/4669358909428804
+    detalurl = "https://m.weibo.cn/status/" + idd
 
     # print(type(deit))
 
@@ -61,22 +61,27 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # print(type(picnum2))
     # print(type(format_time))
 
-    now = datetime.datetime.now()
-
-    dc = now.strftime("%Y-%m-%d %H:%M:%S")
+    now = datetime.now()
+    a = now - timedelta(hours=8)
+    # a = now
+    dc = a.strftime("%H:%M:%S")
     tzshj = dc
+    d1=a.strftime('%Y-%m-%d %H:%M:%S')
+    d3 = datetime.strptime(d1, '%Y-%m-%d %H:%M:%S')
 
-    d2 = datetime.datetime.strptime(format_time, "%Y-%m-%d %H:%M:%S")
-    delta = now - d2
-    delta = delta.seconds / 60
-    delta = delta -480
-    delta = int(delta)
-    delta = str(delta)
-    timedelay = delta
+    d2 = datetime.strptime(format_time, "%Y-%m-%d %H:%M:%S")
+
+    timedelay = d3 - d2
+    # timedelay=timedelay.strftime("%H:%M:%S")
+
+    # delay11 = timedelay.strftime('%M')
+    print(type(timedelay))
+    timedelay=str(timedelay)
+    print(timedelay)
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + '分钟' + ' '+'\n'+ '✔' +'原博链接：'+detalurl+ ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
+    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay  + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
