@@ -51,18 +51,18 @@ def getweibopic(idd,urll):
 
         list99 = []
         a = list(filter(lambda url: url.find('/large') != -1, lucky_num))
-        print(type(a))
+        # print(type(a))
 
     print(a)
     imgpost='https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     headers = {'Content-Type': 'application/json'}
     for j in a:
         pic_url = j.replace('\/', '/')
-        print(pic_url)
+        # print(pic_url)
         imgurl=pic_url
         postdata=json.dumps({"msg":{"type":"image","url":"%s" % imgurl}})
         repp=requests.post(url=imgpost, data=postdata, headers=headers)
-        print(repp)
+        # print(repp)
         time.sleep(4)
 
 
