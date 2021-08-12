@@ -91,9 +91,9 @@ class weiboMonitor():
 
                             urll = i
                             getpic.getweibopic(idd, urll)
-                            print("这是微博id" + str(j['mblog']['id']))  # 这是微博id
-                            print("这是微博url的链接" + i)  # 这是微博url的链接
-                            print(j)  # 这是微博的【】内容是list
+                            #print("这是微博id" + str(j['mblog']['id']))  # 这是微博id
+                            #print("这是微博url的链接" + i)  # 这是微博url的链接
+                            #print(j)  # 这是微博的【】内容是list
                             returnDict['created_at'] = j['mblog']['created_at']
                             returnDict['text'] = j['mblog']['text']
                             returnDict['source'] = j['mblog']['source']
