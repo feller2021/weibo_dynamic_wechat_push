@@ -68,7 +68,7 @@ def getpiclast(idd):
                 for lis2 in pic2:
                     jpg2 = 'https://wx4.sinaimg.cn/large/' + lis2 + '.jpg'
                     print(jpg2)
-                    postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
+                    postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg2}})
                     repp = requests.post(url=imgpost, data=postdata, headers=headers)
                     time.sleep(4)
 
@@ -151,7 +151,7 @@ def isyuanchuang(idd):
                 # print("原创")
                 s='原创'
                 return s
-                
+
 
 
             else:
