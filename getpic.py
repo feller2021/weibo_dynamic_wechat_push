@@ -22,6 +22,8 @@ def getweibopic(idd,urll):
         'Accept': 'application/json, text/plain, */*',
         'Referer': 'https://m.weibo.cn/u/'  # 这个需要改成所要爬取用户主页的手机版本下的url
     }
+    imgpost='https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
+    headers = {'Content-Type': 'application/json'}
 
     # 'https://m.weibo.cn/detail/4668413949250061'
     # def getweibopic(id):
@@ -34,38 +36,64 @@ def getweibopic(idd,urll):
         resp = request.urlopen(req, context=context).read().decode()
         # print('==============正在下载第' + str(i) + '页的图片===============')
         # 先获取所有的large里面的url，注意观察，大图的url中都包含/large,那么我们获取所有的url然后过虐掉不包含/large的url就行了
-        pat = '"url":"(.*?)"'
-        pat2 = '"id":"(.*?)"'
-        list1 = re.compile(pat).findall(resp)
-        list6 = re.compile(pat2).findall(resp)
+        # pat = '"url":"(.*?)"'
+        # pat2 = '"id":"(.*?)"'
+        # list1 = re.compile(pat).findall(resp)
+        # list6 = re.compile(pat2).findall(resp)
         id = idd
-        s = '"id":"%s"(.*?)number_display_strategy' % id
+        s = '"id":"%s"(.*?)pic_types' % id
         list7 = re.compile(s).findall(resp)
+        print(list7)
         tt = ''
         a=[]
+
 
     for i in list7:
         tt = tt + i
         # tt=tt.text
-        lucky_num = re.findall(r'"url":"(.*?)"', tt)
+        print(tt)
+        lucky_num = re.compile('"pic_ids":\[(.*?)\],"').findall(tt)
+        print("------------------")
 
-        list99 = []
-        a = list(filter(lambda url: url.find('/large') != -1, lucky_num))
-        # print(type(a))
-
-    print(a)
-    imgpost='https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
-    headers = {'Content-Type': 'application/json'}
-    for j in a:
-        pic_url = j.replace('\/', '/')
-        # print(pic_url)
-        imgurl=pic_url
-        postdata=json.dumps({"msg":{"type":"image","url":"%s" % imgurl}})
-        repp=requests.post(url=imgpost, data=postdata, headers=headers)
-        # print(repp)
-        time.sleep(4)
-
+        # print(lucky_num)
+        for umg in lucky_num:
+            th=umg
+            pp=re.compile('"(.*?)"').findall(umg)
+            print(type(pp))
+            for lis in pp:
+                jpg='https://wx4.sinaimg.cn/large/'+lis+'.jpg'
+                # print(jpg)
+                postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
+                repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                time.sleep(4)
+                # print(lis)https://wx4.sinaimg.cn/large/005JVMmmgy1gtf9cxhyuij318z0u0wk3.jpg
 
 
 
 
+
+
+        # a = list(filter(lambda url: url.find('/large') != -1, lucky_num))
+        # # print(type(a))
+        #
+        # print(a)
+    # imgpost='https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
+    # headers = {'Content-Type': 'application/json'}
+    # for j in a:
+    #     pic_url = j.replace('\/', '/')
+    #     # print(pic_url)
+    #     imgurl=pic_url
+    #     print(imgurl)
+    #     postdata=json.dumps({"msg":{"type":"image","url":"%s" % imgurl}})
+    #     repp=requests.post(url=imgpost, data=postdata, headers=headers)
+    #     # print(repp)
+    #     time.sleep(4)
+    #
+    #
+
+
+
+#
+#
+# if __name__ == '__main__':
+#     getweibopic()
