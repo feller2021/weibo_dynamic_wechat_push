@@ -154,8 +154,8 @@ def isyuanchuang(idd):
             else:
                 print("转发")
 
-
-if __name__ == '__main__':
-    getpiclast(4669870622900757)
-    mun(4669870622900757)
-    isyuanchuang(4669870622900757)
+# 
+# if __name__ == '__main__':
+#     getpiclast(4669870622900757)
+#     mun(4669870622900757)
+#     isyuanchuang(4669870622900757)
