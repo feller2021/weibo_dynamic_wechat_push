@@ -53,9 +53,9 @@ def getpiclast(idd):
                 for lis in pic:
                     jpg = 'https://wx4.sinaimg.cn/large/' + lis + '.jpg'
                     print(jpg)
-                    # postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
-                    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
-                    # time.sleep(4)
+                    postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
+                    repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                    time.sleep(4)
 
                 pic_num = k['pic_num']
                 picww = pic_num
@@ -68,9 +68,9 @@ def getpiclast(idd):
                 for lis2 in pic2:
                     jpg2 = 'https://wx4.sinaimg.cn/large/' + lis2 + '.jpg'
                     print(jpg2)
-                    # postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
-                    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
-                    # time.sleep(4)
+                    postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
+                    repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                    time.sleep(4)
 
                 pic_num2 = k['retweeted_status']['pic_num']
                 picww = pic_num2
@@ -151,7 +151,7 @@ def isyuanchuang(idd):
                 # print("原创")
                 s='原创'
                 return s
-
+                
 
 
             else:
