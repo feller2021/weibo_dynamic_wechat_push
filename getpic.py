@@ -41,7 +41,7 @@ def getweibopic(idd,urll):
         # list1 = re.compile(pat).findall(resp)
         # list6 = re.compile(pat2).findall(resp)
         id = idd
-        s = '"id":"%s"(.*?)pic_types' % id
+        s = '"id":"%s"(.*?)picStatus' % id
         list7 = re.compile(s).findall(resp)
         print(list7)
         tt = ''
