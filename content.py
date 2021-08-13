@@ -5,6 +5,7 @@
 # Desc      : 微博主模块
 import time
 from datetime import datetime, timedelta
+import htmljiexi
 
 import requests, json, sys
 import re
@@ -23,7 +24,7 @@ def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
     return times
 
 
-def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, picnum, idd):
+def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, idd):
     global a
     AAA = txt['mblog']['text']
     span = re.sub('<span(.*?)</span>', '', AAA)
@@ -54,7 +55,10 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     reposts2 = str(reposts)
     comments2 = str(comments)
     attitudes2 = str(attitudes)
-    picnum2 = str(picnum)
+    shuliang=htmljiexi.mun(idd)
+    picnum2 = str(shuliang)
+    ycwb=htmljiexi.isyuanchuang(idd)
+    isyuanchuang=str(ycwb)
 
 
 
@@ -77,7 +81,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
+    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n'+'✔' + isyuanchuang + '微博' + ' ' + '\n'+ '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
