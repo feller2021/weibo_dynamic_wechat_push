@@ -5,8 +5,9 @@
 # Desc      : 微博主模块
 
 import requests, json, sys
-import getpic
+# import getpic
 import content
+import htmljiexi
 
 
 class weiboMonitor():
@@ -18,7 +19,8 @@ class weiboMonitor():
             'Connection': 'close',
             'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
         }
-        self.uid = ['6395178860', '1906286443', '6626748101', '6626748101', '7519314407', '5663590461', '5594559637', '7031421269', '7505006312', '7209505250', '6064752668', '7519314407', '3654410557']  # 这里添加关注人的uid
+        self.uid = ['6395178860', '1906286443', '6626748101', '6626748101', '7519314407', '5663590461', '5594559637',
+                    '7031421269', '7505006312', '7209505250', '6064752668', '7519314407', '3654410557']  # 这里添加关注人的uid
 
     # 获取访问连接
     def getweiboInfo(self):
@@ -31,7 +33,7 @@ class weiboMonitor():
                     if j['tab_type'] == 'weibo':
                         self.weiboInfo.append(
                             'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s&containerid=%s' % (
-                            i, j['containerid']))
+                                i, j['containerid']))
         except Exception as e:
             self.echoMsg('Error', e)
             sys.exit()
@@ -86,14 +88,15 @@ class weiboMonitor():
                             comments = j['mblog']['comments_count']
                             picnum = j['mblog']['pic_num']
                             content.wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments,
-                                              picnum,idd)
+                                              idd)
                             # 以下输出微博图片
+                            htmljiexi.getpiclast(idd)
 
-                            urll = i
-                            getpic.getweibopic(idd, urll)
-                            #print("这是微博id" + str(j['mblog']['id']))  # 这是微博id
-                            #print("这是微博url的链接" + i)  # 这是微博url的链接
-                            #print(j)  # 这是微博的【】内容是list
+                            # urll = i
+                            # getpic.getweibopic(idd, urll)
+                            # print("这是微博id" + str(j['mblog']['id']))  # 这是微博id
+                            # print("这是微博url的链接" + i)  # 这是微博url的链接
+                            # print(j)  # 这是微博的【】内容是list
                             returnDict['created_at'] = j['mblog']['created_at']
                             returnDict['text'] = j['mblog']['text']
                             returnDict['source'] = j['mblog']['source']
