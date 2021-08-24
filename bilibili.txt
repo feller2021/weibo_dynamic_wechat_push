@@ -474,3 +474,4 @@ https://api.bilibili.com/x/space/arc/search?mid=386234695:1240
 https://api.bilibili.com/x/space/arc/search?mid=386234695:1241
 https://api.bilibili.com/x/space/arc/search?mid=946974:408
 https://api.bilibili.com/x/space/arc/search?mid=125526:321
+https://api.bilibili.com/x/space/arc/search?mid=388657573:376
