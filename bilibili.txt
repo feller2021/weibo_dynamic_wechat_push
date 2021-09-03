@@ -496,3 +496,4 @@ https://api.bilibili.com/x/space/arc/search?mid=386234695:1245
 https://api.bilibili.com/x/space/arc/search?mid=25910292:586
 https://api.bilibili.com/x/space/arc/search?mid=25876945:260
 https://api.bilibili.com/x/space/arc/search?mid=946974:411
+https://api.bilibili.com/x/space/arc/search?mid=388657573:378
