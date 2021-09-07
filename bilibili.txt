@@ -522,3 +522,4 @@ https://api.bilibili.com/x/space/arc/search?mid=388657573:392
 https://api.bilibili.com/x/space/arc/search?mid=388657573:393
 https://api.bilibili.com/x/space/arc/search?mid=388657573:394
 https://api.bilibili.com/x/space/arc/search?mid=388657573:395
+https://api.bilibili.com/x/space/arc/search?mid=388657573:396
