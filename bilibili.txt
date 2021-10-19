@@ -625,3 +625,4 @@ https://api.bilibili.com/x/space/arc/search?mid=4401694:73
 https://api.bilibili.com/x/space/arc/search?mid=25876945:268
 https://api.bilibili.com/x/space/arc/search?mid=125526:330
 https://api.bilibili.com/x/space/arc/search?mid=25910292:602
+https://api.bilibili.com/x/space/arc/search?mid=7887262:142
