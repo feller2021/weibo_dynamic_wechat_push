@@ -629,3 +629,4 @@ https://api.bilibili.com/x/space/arc/search?mid=7887262:142
 https://api.bilibili.com/x/space/arc/search?mid=386234695:1288
 https://api.bilibili.com/x/space/arc/search?mid=386234695:1289
 https://api.bilibili.com/x/space/arc/search?mid=946974:426
+https://api.bilibili.com/x/space/arc/search?mid=7887262:143
