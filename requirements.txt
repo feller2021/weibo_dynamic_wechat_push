@@ -1,3 +1,4 @@
 pycryptodome
 requests
 lxml
+django
