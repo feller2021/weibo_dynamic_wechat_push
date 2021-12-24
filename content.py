@@ -7,7 +7,7 @@ import time
 from datetime import datetime, timedelta
 import htmljiexi
 import tyoi
-
+from django.template.defaultfilters import striptags
 import requests, json, sys
 import re
 
@@ -28,10 +28,14 @@ def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
 def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comments, idd):
     global a
     AAA = txt['mblog']['text']
-    span = re.sub('<span(.*?)</span>', '', AAA)
-    atab = re.sub('<a(.*?)</a>', '', span)
-    img = re.sub('<img alt(.*?)/>', '', atab)
-    bra = re.sub('<br />', '', img)
+    AAA=str(AAA)
+    bra = striptags(AAA)
+    
+    
+#     span = re.sub('<span(.*?)</span>', '', AAA)
+#     atab = re.sub('<a(.*?)</a>', '', span)
+#     img = re.sub('<img alt(.*?)/>', '', atab)
+#     bra = re.sub('<br />', '', img)
     # print(bra)
     format_time = trans_format(createtime, '%a %b %d %H:%M:%S +0800 %Y', '%Y-%m-%d %H:%M:%S')
     # print(format_time)
@@ -89,7 +93,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n'+'✔' + isyuanchuang + '微博' + ' '+isycsp + '\n'+ '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '◕‿-｡　｡◕‿◕' + '\n' + bra + '\n' + '◕‿-｡　｡◕‿◕'
+    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n'+'✔' + isyuanchuang + '微博' + ' '+isycsp + '\n'+ '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '--------' + '\n' + bra + '\n' + '--------'
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
