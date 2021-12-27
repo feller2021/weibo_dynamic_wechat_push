@@ -93,7 +93,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
     headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n'+'✔' + isyuanchuang + '微博' + ' '+isycsp + '\n'+ '✔' + picnum2 + '张图' + ' ' + '\n' + '✔' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '✔' + '推送时间：' + tzshj + ' ' + '\n' + '✔' + '延时推送：' + timedelay + ' ' + '\n' + '✔' + '原博链接：' + detalurl + ' ' + '\n' + '\n' + '--------' + '\n' + bra + '\n' + '--------'
+    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n'+'▷' + isyuanchuang + '微博' + ' '+isycsp + '\n'+ '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + detalurl + ' ' + '\n'  + '------------------------' + '\n' + bra + '\n' + '------------------------'
     print(fasongneir)
     postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
