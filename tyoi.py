@@ -1,4 +1,5 @@
 import json
+import sys
 import time
 from pprint import pprint
 
@@ -11,6 +12,7 @@ header = {
     'Accept': 'application/json, text/plain, */*',
     'Referer': 'https://m.weibo.cn/u/'  # 这个需要改成所要爬取用户主页的手机版本下的url
 }
+# 4719775370709123
 def isshipiin(idd):
     id = idd
     realurl = 'https://m.weibo.cn/status/%s' % id
@@ -32,36 +34,50 @@ def isshipiin(idd):
             objson = json.loads(j)
             k = objson['status']
             t = 'retweeted_status'
-            if t not in k:
-                # print("原创视频")
-                ycsp=k['page_info']['type']
-                # print(type(ycsp))
-                if ycsp=='video':
+            try:
+                if t not in k:
+                    # print("原创视频")
+                    ycsp = k['page_info']['type']
+                    # print(type(ycsp))
+                    if ycsp == 'video':
 
-                    ycspp='原创视频'
-                    return ycspp
+                        ycspp = '原创视频'
+                        return ycspp
+                    else:
+                        return ''
+
+
+
+
+
+
                 else:
-                    return ''
+                    ycsp = k['retweeted_status']['page_info']['type']
+                    if ycsp == 'video':
+
+                        ycspp = '转发视频'
+                        return ycspp
+                    else:
+                        return ''
+            except Exception as e:
+                return "非视频"
+                sys.exit()
+
+def echoMsg(self, level, msg):
+    if level == 'Info':
+        print('[Info] %s' % msg)
+    elif level == 'Error':
+        print('[Error] %s' % msg)
 
 
 
 
-
-
-            else:
-                ycsp = k['retweeted_status']['page_info']['type']
-                if ycsp == 'video':
-
-                    ycspp = '转发视频'
-                    return ycspp
-                else:
-                    return ''
 
 
 
 #
 # if __name__ == '__main__':
 #     # isshipiin(4669819553058321)
-#     sd=isshipiin(4669819553058321)
+#     sd=isshipiin(4719775370709123)
 #
 #     print(sd)
