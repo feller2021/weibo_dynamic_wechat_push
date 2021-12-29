@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 #coding=utf-8
 
-from monitor import wbmonitor, bzmonitor, dymonitor
+import wbmonitor
 import requests
 import urllib.parse
-import json
 import time
 
 spkey = '88806f3e51f72337714104837f800677'
@@ -48,16 +47,16 @@ def wbweixin(dicts):
     return flag
 
 
-def bzweixin(dicts):
-    text = "" + dicts['nickName'] + "更新B站\n"
-    flag = notify(text)
-    return flag
-
-
-def dyweixin(dicts):
-    text = "" + dicts['nickName'] + "更新抖音\n"
-    flag = notify(text)
-    return flag
+# def bzweixin(dicts):
+#     text = "" + dicts['nickName'] + "更新B站\n"
+#     flag = notify(text)
+#     return flag
+#
+#
+# def dyweixin(dicts):
+#     text = "" + dicts['nickName'] + "更新抖音\n"
+#     flag = notify(text)
+#     return flag
 
 
 
@@ -73,25 +72,25 @@ def main(*args):
     newWB = w.startmonitor()
     if newWB is not None:
         print(wbweixin(newWB))  #推送成功则输出True
-    #B站部分
-    b = bzmonitor.bzMonitor()
-    b.getbzurl()
-    with open('bilibili.txt', 'r') as f2:
-        text = f2.read()
-        if text == '':
-            b.getBZQueue()
-    newBZ = b.startbzmonitor()
-    if newBZ is not None:
-        print(bzweixin(newBZ))
-    #抖音部分
-    d = dymonitor.dyMonitor()
-    with open('douyin.txt', 'r') as f3:
-        text = f3.read()
-        if text == '':
-            d.getDYQueue()
-    newDY = d.startdymonitor()
-    if newDY is not None:
-        print(dyweixin(newDY))
+    # #B站部分
+    # b = bzmonitor.bzMonitor()
+    # b.getbzurl()
+    # with open('bilibili.txt', 'r') as f2:
+    #     text = f2.read()
+    #     if text == '':
+    #         b.getBZQueue()
+    # newBZ = b.startbzmonitor()
+    # if newBZ is not None:
+    #     print(bzweixin(newBZ))
+    # #抖音部分
+    # d = dymonitor.dyMonitor()
+    # with open('douyin.txt', 'r') as f3:
+    #     text = f3.read()
+    #     if text == '':
+    #         d.getDYQueue()
+    # newDY = d.startdymonitor()
+    # if newDY is not None:
+    #     print(dyweixin(newDY))
 
 
 if __name__ == '__main__':
