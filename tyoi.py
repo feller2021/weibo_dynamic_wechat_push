@@ -44,7 +44,7 @@ def isshipiin(idd):
                         ycspp = '原创视频'
                         return ycspp
                     else:
-                        return ''
+                        return '未知异常'
 
 
 
@@ -58,7 +58,7 @@ def isshipiin(idd):
                         ycspp = '转发视频'
                         return ycspp
                     else:
-                        return ''
+                        return '未知异常'
             except Exception as e:
                 return "非视频"
                 sys.exit()
