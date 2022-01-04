@@ -44,7 +44,7 @@ def isshipiin(idd):
                         ycspp = '原创视频'
                         return ycspp
                     else:
-                        return ''
+                        return ""
 
 
 
@@ -58,9 +58,9 @@ def isshipiin(idd):
                         ycspp = '转发视频'
                         return ycspp
                     else:
-                        return ''
+                        return ""
             except Exception as e:
-                return "非视频"
+                return ""
                 sys.exit()
 
 def echoMsg(self, level, msg):
