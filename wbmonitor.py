@@ -5,7 +5,7 @@
 # Desc      : 微博主模块
 
 import requests, json, sys
-# import getpic
+import getpic
 import content
 import htmljiexi
 
@@ -81,7 +81,12 @@ class weiboMonitor():
                             createtime = j['mblog']['created_at']
                             sourcel = j['mblog']['source']
                             fasname = j['mblog']['user']['screen_name']
-                            deit = j['mblog']['edit_config']['edited']
+                            # deit = j['mblog']['edit_config']['edited']
+                            try:
+                                deit = j['mblog']['edit_config']['edited']
+
+                            except:
+                                deit = False
 
                             reposts = j['mblog']['reposts_count']
                             attitudes = j['mblog']['attitudes_count']
