@@ -67,10 +67,10 @@ def lasttxt(urlid):
 
 
 
-if __name__ == '__main__':
-    gt=lasttxt(4735729542370183)
-    print(type(gt))
-    print(gt)
+# if __name__ == '__main__':
+#     gt=lasttxt(4735729542370183)
+#     print(type(gt))
+#     print(gt)
 
 
 
