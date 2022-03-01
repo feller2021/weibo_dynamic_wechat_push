@@ -22,9 +22,8 @@ def getweibopic(idd,urll):
         'Accept': 'application/json, text/plain, */*',
         'Referer': 'https://m.weibo.cn/u/'  # 这个需要改成所要爬取用户主页的手机版本下的url
     }
-    imgpost='https://push.bot.qw360.cn/room/62b82c00-993b-11ec-9d03-6b5ca40f70fe'
-     # 群 https://push.bot.qw360.cn/room/62b82c00-993b-11ec-9d03-6b5ca40f70fe
-    # 个人 https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154
+    imgpost='https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
+
     headers = {'Content-Type': 'application/json'}
 
     # 'https://m.weibo.cn/detail/4668413949250061'
