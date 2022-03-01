@@ -95,9 +95,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     timedelay=str(timedelay)
     print(timedelay)
 
-    imgpost = 'https://push.bot.qw360.cn/room/62b82c00-993b-11ec-9d03-6b5ca40f70fe'
-    # 群 https://push.bot.qw360.cn/room/62b82c00-993b-11ec-9d03-6b5ca40f70fe
-    # 个人 https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154
+    imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
+    
     headers = {'Content-Type': 'application/json'}
     fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n'+'▷' + isyuanchuang + '微博' + ' '+isycsp + '\n'+ '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + ' '+ reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + detalurl + ' ' + '\n'  + '------------------------' + '\n' + braa + '\n' + '------------------------'
     print(fasongneir)
