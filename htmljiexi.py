@@ -21,7 +21,9 @@ header = {
 # zhuanfa 4669870106477736
 # kuanzhuan  4669812238457985
 # pic_num=''global
-imgpost = 'https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154'
+imgpost = 'https://push.bot.qw360.cn/room/62b82c00-993b-11ec-9d03-6b5ca40f70fe'
+  # 群 https://push.bot.qw360.cn/room/62b82c00-993b-11ec-9d03-6b5ca40f70fe
+    # 个人 https://push.bot.qw360.cn/send/e54011f0-f9aa-11eb-806f-9354f453c154
 headers = {'Content-Type': 'application/json'}
 
 
