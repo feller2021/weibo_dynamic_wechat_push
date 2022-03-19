@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# Author    : B1ain
-# Action    : 微博
-# Desc      : 微博主模块
+
 import time
 from datetime import datetime, timedelta
 import htmljiexi
