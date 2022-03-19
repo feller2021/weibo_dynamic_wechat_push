@@ -16,7 +16,7 @@ Python
 1. 先找到一个推动微信的接口，这个接口要满足：可以推送文本+可以图送图片。最好以聊天形式，非模板消息。
 2. 替换你的微信接口发送链接，把该替换的数据都替换掉
 3. 点击运行，设置每5分钟运行
-4. ![image](https://user-images.githubusercontent.com/26820680/158502967-00d1d458-2a16-4290-8611-0fc8a29d0fbf.png)
+4. (![aaa11120220319163815](https://user-images.githubusercontent.com/26820680/159114136-9357cd59-9e0c-47b9-bcbe-50b93c4d2a19.png))
 
 
 #### 参与贡献
@@ -26,4 +26,4 @@ Python
 3. 提交代码
 4. 新建 Pull Request
 #### License
-[Apache-2.0 License](https://hacpai.com/article/1577370404903?utm_source=github.com)
+[Apache-2.0 License](https://github.com/liurenjie520/weibo_dynamic_push/blob/main/LICENSE)
