@@ -83,12 +83,23 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     timedelay = str(timedelay)
     print(timedelay)
 
+    
+    lianjie = ''
+    pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')  # 匹配模式
+
+    # string = 'Its after 12 noon, do you know where your rooftops are? http://tinyurl.com/NYCRooftops '
+    url = re.findall(pattern, detalurl)
+    for urll in url:
+        # print(urll)
+        lianjie = urll
+    lianjie2 = "<a href = " + lianjie + ">点击该链接</a>"
+
     imgpost = 'https://push.bot.qw360.cn/send/3325bea0-9939-11ec-9d03-6b5ca40f70fe'
     # e54011f0-f9aa-11eb-806f-9354f453c154
     # 3325bea0-9939-11ec-9d03-6b5ca40f70fe
 
     # headers = {'Content-Type': 'application/json'}
-    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + detalurl + ' ' + '\n' + '------------------------' + '\n' + braa + '\n' + '------------------------'
+    fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + lianjie2 + ' ' + '\n' + '------------------------' + '\n' + braa + '\n' + '------------------------'
     print(fasongneir)
     # postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
