@@ -104,6 +104,33 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     time.sleep(4)
     repp = requests.post(url=imgpost, data=postdata, headers=headers)
 
+    huanghang = "<br />"
+    tupianxianshi = '<meta name="referrer" content="no-referrer" />'
+    tu = htmljiexi.getpiclast(idd)
+    content = fasongneir + huanghang + tupianxianshi + tu
+    content = content.replace('"', '\"')
+    content = content.replace('\ "', '\"')
+
+    # print(content)
+    url = 'http://wxpusher.zjiecode.com/api/send/message'
+    HEADERS = {'Content-Type': 'application/json'}
+    FormData = {
+        "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
+        "content": content,
+        "summary": f"@" + fasname + format_time + isyuanchuang+'微博' + '\n'+ picnum2 + '张图' + '\n' + '推送时间：' + tzshj + ' ' + '\n'  + '延时推送：' + timedelay ,
+        "contentType": 2,
+
+        "topicIds": [
+
+        ],
+        "uids": [
+            "UID_noWsar4x3r0zd4WqjCaoD5CIX9Xi"
+        ],
+        "url": ""
+    }
+    res = requests.post(url=url, json=FormData, headers=HEADERS)
+    print(res.text)
+
 #
 # if __name__ == '__main__':
 #     wbcontent(1)
