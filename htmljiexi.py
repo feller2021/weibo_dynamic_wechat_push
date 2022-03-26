@@ -48,12 +48,16 @@ def getpiclast(idd):
             objson = json.loads(j)
             k = objson['status']
             t = 'retweeted_status'
+            # 2022年3月份替换模板消息发送渠道，为了拼接图片。故作出如下更改
+            tupian = ""
             if t not in k:
                 print("原创")
                 pic = k['pic_ids']
                 for lis in pic:
                     jpg = 'https://wx4.sinaimg.cn/large/' + lis + '.jpg'
                     print(jpg)
+                    zuhe = "<img src=\"" + jpg + "\" >"
+                    tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
                     repp = requests.post(url=imgpost, data=postdata, headers=headers)
                     time.sleep(4)
@@ -69,6 +73,8 @@ def getpiclast(idd):
                 for lis2 in pic2:
                     jpg2 = 'https://wx4.sinaimg.cn/large/' + lis2 + '.jpg'
                     print(jpg2)
+                    zuhe = "<img src=\"" + jpg2 + "\" >"
+                    tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg2}})
                     repp = requests.post(url=imgpost, data=postdata, headers=headers)
                     time.sleep(4)
@@ -76,6 +82,7 @@ def getpiclast(idd):
                 pic_num2 = k['retweeted_status']['pic_num']
                 picww = pic_num2
                 # print(pic_num2)
+            return tupian
 
 def mun(idd):
     id = idd
