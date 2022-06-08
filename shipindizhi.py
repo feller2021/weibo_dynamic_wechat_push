@@ -16,7 +16,7 @@ def shipinpaly(idd):
         
 
     if matchObj:
-        print(matchObj.group(1))
+        # print(matchObj.group(1))
         shipinurl=matchObj.group(1)
     return shipinurl
 
