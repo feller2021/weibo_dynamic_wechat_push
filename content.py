@@ -9,6 +9,8 @@ from django.template.defaultfilters import striptags
 import requests, json, sys
 import re
 import wbtxt
+import shipindizhi
+import bofangqi
 
 
 def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
@@ -83,7 +85,6 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     timedelay = str(timedelay)
     print(timedelay)
 
-    
     lianjie = ''
     pattern = re.compile(r'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')  # 匹配模式
 
@@ -101,7 +102,15 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # headers = {'Content-Type': 'application/json'}
     # fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + lianjie2 + ' ' + '\n' + '------------------------' + '\n' + braa + '\n' + '------------------------'
     # print(fasongneir)
-    fasongneir = '@' + fasname + '<br>'+'消息类型：普通推送'+ '<br>' + format_time + ' ' + '来自 ' + sourcel + ' ' + '<br>' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '<br>' + '▷' + picnum2 + '张图' + ' ' + '<br>' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '<br>' + '▷' + '推送时间：' + tzshj + ' ' + '<br>' + '▷' + '延时推送：' + timedelay + ' ' + '<br>' + '▷' + '原博链接：' + lianjie2 + ' ' + '<br>' + '------------------------' + '<br>' + braa + '<br>' + '------------------------'
+    strpd = "原创视频转发视频"
+    if isycsp in strpd:
+        bofanshipin=bofangqi.bofang(idd)
+        bofanshipin = str(bofanshipin)
+    else:
+        bofanshipin=''
+
+
+    fasongneir = '@' + fasname + '<br>' + '消息类型：普通推送' + '<br>' + format_time + ' ' + '来自 ' + sourcel + ' ' + '<br>' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '<br>' + '▷' + picnum2 + '张图' + ' ' + '<br>' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '<br>' + '▷' + '推送时间：' + tzshj + ' ' + '<br>' + '▷' + '延时推送：' + timedelay + ' ' + '<br>' + '▷' + '原博链接：' + lianjie2 + ' ' + '<br>' + '------------------------' + '<br>' + braa + '<br>' + '------------------------'+'<br>'+bofanshipin
     # postdata = json.dumps({"msg": fasongneir})
     time.sleep(4)
     # repp = requests.post(url=imgpost, data=postdata, headers=headers)
@@ -119,7 +128,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     FormData = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
         "content": content,
-        "summary": f"[普通]@" +fasname + '\n' +'微博发送时间：'+format_time +'\n'+ '▷'+isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷'+ picnum2 + '张图' +  '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay,
+        "summary": f"[普通]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay,
         "contentType": 2,
 
         "topicIds": [
