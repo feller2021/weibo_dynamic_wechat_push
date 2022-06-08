@@ -93,7 +93,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     for urll in url:
         # print(urll)
         lianjie = urll
-    lianjie2 = "<a href = " + lianjie + ">点击该链接</a>"
+    lianjie2 = "<a href = " + lianjie + ">点击该链接打开微博</a>"
 
     imgpost = 'https://push.bot.qw360.cn/send/3325bea0-9939-11ec-9d03-6b5ca40f70fe'
     # e54011f0-f9aa-11eb-806f-9354f453c154
@@ -102,8 +102,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # headers = {'Content-Type': 'application/json'}
     # fasongneir = '@' + fasname + '\n' + format_time + ' ' + '来自 ' + sourcel + ' ' + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + ' ' + '\n' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay + ' ' + '\n' + '▷' + '原博链接：' + lianjie2 + ' ' + '\n' + '------------------------' + '\n' + braa + '\n' + '------------------------'
     # print(fasongneir)
-    strpd = "原创视频转发视频"
-    if isycsp in strpd:
+
+    if isycsp != "":
         bofanshipin=bofangqi.bofang(idd)
         bofanshipin = str(bofanshipin)
     else:
