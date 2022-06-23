@@ -11,7 +11,7 @@ import htmljiexi
 class weiboMonitor():
     def __init__(self, ):
         self.reqHeaders = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:54.0) Gecko/20100101 Firefox/54.0',
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
             'Content-Type': 'application/x-www-form-urlencoded',
             'Referer': 'https://passport.weibo.cn/signin/login',
             'Connection': 'close',
