@@ -21,7 +21,7 @@ def isshipiin(idd):
     res.encoding = 'utf-8'
     root = etree.HTML(res.content)
 
-    gameList = root.xpath("/html/body/script[1]/text()")
+    gameList = root.xpath("/html/body/script[2]/text()")
 
     for i in gameList:
 
