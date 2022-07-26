@@ -29,7 +29,7 @@ def getgy(urlid):
     root = etree.HTML(res.content)
 
 
-    gameList = root.xpath("/html/body/script[1]/text()")
+    gameList = root.xpath("/html/body/script[2]/text()")
     # print(gameList)
     for i in gameList:
 
