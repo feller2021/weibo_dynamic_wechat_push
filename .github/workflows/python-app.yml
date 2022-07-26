@@ -28,8 +28,8 @@ jobs:
       run: python index.py    
     - name: commit
       run: |
-        git config --global user.email 1435679023@qq.com
-        git config --global user.name marsggbo
+        git config --global user.email 2222@qq.com
+        git config --global user.name feller
         git add .
         git commit -m "update" -a
     - name: Push changes
