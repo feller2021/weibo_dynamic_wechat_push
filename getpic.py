@@ -65,7 +65,7 @@ def getweibopic(idd,urll):
                 jpg='https://wx4.sinaimg.cn/large/'+lis+'.jpg'
                 # print(jpg)
                 postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
-                repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                # repp = requests.post(url=imgpost, data=postdata, headers=headers)
                 time.sleep(4)
                 # print(lis)https://wx4.sinaimg.cn/large/005JVMmmgy1gtf9cxhyuij318z0u0wk3.jpg
 
