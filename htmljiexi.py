@@ -59,7 +59,7 @@ def getpiclast(idd):
                     zuhe = "<img src=\"" + jpg + "\" >"
                     tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
-                    repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
                     time.sleep(4)
 
                 pic_num = k['pic_num']
@@ -76,7 +76,7 @@ def getpiclast(idd):
                     zuhe = "<img src=\"" + jpg2 + "\" >"
                     tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg2}})
-                    repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
                     time.sleep(4)
 
                 pic_num2 = k['retweeted_status']['pic_num']
