@@ -190,7 +190,7 @@ def iphonepushdeer(fasname,idd):
     
     pushkey = os.environ["pushkey"]
     pushdeer = PushDeer(pushkey=pushkey)
-    
+    print(tpp4)
     pushdeer.send_markdown(fasname, desp=tpp4)
     print("推送到iPhonepushdeer成功！")           
                 
