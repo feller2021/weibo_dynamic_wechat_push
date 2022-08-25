@@ -1,7 +1,8 @@
 import json
 import time
 from pprint import pprint
-
+from pypushdeer import PushDeer
+import os
 import requests
 import re
 from lxml import etree
@@ -166,3 +167,31 @@ def isyuanchuang(idd):
                 # print("转发")
                 b='转发'
                 return b
+            
+                
+                
+                
+                
+def iphonepushdeer(fasname,idd):
+    # https://m.weibo.cn/status/4806281305784430
+    # ![](https://wx4.sinaimg.cn/large/006d5LOagy1h5ejyra00lj31o02801kx.jpg)
+    # print(getpiclast(4806281305784430))
+    fasname=fasname
+    idd=idd
+    ttt = getpiclast(idd)
+    tpp4 = ''
+    for pt in ttt:
+        tpp1 = '![]('
+        tpp2 = ')'
+        tpp3 = tpp1 + pt + tpp2
+        tpp4 += tpp3
+
+
+    
+    pushkey = os.environ["pushkey"]
+    pushdeer = PushDeer(pushkey=pushkey)
+    
+    pushdeer.send_markdown(fasname, desp=tpp4)
+    print("推送到iPhonepushdeer成功！")           
+                
+                
