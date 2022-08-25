@@ -2,3 +2,4 @@ pycryptodome
 requests
 lxml
 django
+pypushdeer
