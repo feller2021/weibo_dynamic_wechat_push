@@ -85,6 +85,71 @@ def getpiclast(idd):
                 # print(pic_num2)
             return tupian
 
+
+def getpiclast2(idd):
+    id = idd
+    realurl = 'https://m.weibo.cn/status/%s' % id
+    res = requests.get(realurl, headers=header)
+
+    res.encoding = 'utf-8'
+    root = etree.HTML(res.content)
+
+    gameList = root.xpath("/html/body/script[2]/text()")
+
+    for i in gameList:
+
+        i = i.replace('\n', '').replace('\r', '')
+        list1 = re.findall('data = \[(.*?)\]\[0\]', i)
+        jpg = ''
+        jpg2 = ''
+        for j in list1:
+            pprint(type(j))
+            print(j)
+            objson = json.loads(j)
+            k = objson['status']
+            t = 'retweeted_status'
+            # 2022年3月份替换模板消息发送渠道，为了拼接图片。故作出如下更改
+            tupian = ""
+            tupian88 = []
+            if t not in k:
+                print("原创")
+                pic = k['pic_ids']
+                for lis in pic:
+                    jpg = 'https://wx4.sinaimg.cn/large/' + lis + '.jpg'
+                    print(jpg)
+                    tupian88.append(jpg)
+                    zuhe = "<img src=\"" + jpg + "\" >"
+                    tupian += zuhe
+                    postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
+                    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                    time.sleep(4)
+
+                pic_num = k['pic_num']
+                picww = pic_num
+                # pprint(pic_num)
+
+
+            else:
+                print("转发")
+                pic2 = k['retweeted_status']['pic_ids']
+                for lis2 in pic2:
+                    jpg2 = 'https://wx4.sinaimg.cn/large/' + lis2 + '.jpg'
+                    print(jpg2)
+                    tupian88.append(jpg2)
+                    zuhe = "<img src=\"" + jpg2 + "\" >"
+                    tupian += zuhe
+                    postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg2}})
+                    # repp = requests.post(url=imgpost, data=postdata, headers=headers)
+                    time.sleep(4)
+
+                pic_num2 = k['retweeted_status']['pic_num']
+                picww = pic_num2
+                # print(pic_num2)
+            return tupian88
+
+
+
+
 def mun(idd):
     id = idd
     realurl = 'https://m.weibo.cn/status/%s' % id
@@ -135,7 +200,6 @@ def mun(idd):
                 # print(pic_num2)
 
 
-
 def isyuanchuang(idd):
     id = idd
     realurl = 'https://m.weibo.cn/status/%s' % id
@@ -158,27 +222,24 @@ def isyuanchuang(idd):
             t = 'retweeted_status'
             if t not in k:
                 # print("原创")
-                s='原创'
+                s = '原创'
                 return s
 
 
 
             else:
                 # print("转发")
-                b='转发'
+                b = '转发'
                 return b
-            
-                
-                
-                
-                
-def iphonepushdeer(fasname,idd):
+
+
+def iphonepushdeer(fasname, idd):
     # https://m.weibo.cn/status/4806281305784430
     # ![](https://wx4.sinaimg.cn/large/006d5LOagy1h5ejyra00lj31o02801kx.jpg)
     # print(getpiclast(4806281305784430))
-    fasname=fasname
-    idd=idd
-    ttt = getpiclast(idd)
+    fasname = fasname
+    idd = idd
+    ttt = getpiclast2(idd)
     tpp4 = ''
     for pt in ttt:
         tpp1 = '![]('
@@ -186,12 +247,10 @@ def iphonepushdeer(fasname,idd):
         tpp3 = tpp1 + pt + tpp2
         tpp4 += tpp3
 
-
-    
     pushkey = os.environ["pushkey"]
     pushdeer = PushDeer(pushkey=pushkey)
     print(tpp4)
     pushdeer.send_markdown(fasname, desp=tpp4)
     print("推送到iPhonepushdeer成功！")           
-                
-                
+
+
