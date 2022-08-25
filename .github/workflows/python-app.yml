@@ -25,6 +25,8 @@ jobs:
     - name: 'Install dependencies'
       run: pip install -r requirements.txt
     - name: '开始运行'
+      env:
+        pushkey: ${{ secrets.pushkey }}
       run: python index.py    
     - name: commit
       run: |
