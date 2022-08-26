@@ -250,7 +250,13 @@ def iphonepushdeer(fasname, idd):
     pushkey = os.environ["pushkey"]
     pushdeer = PushDeer(pushkey=pushkey)
     print(tpp4)
-    pushdeer.send_markdown(fasname, desp=tpp4)
-    print("推送到iPhonepushdeer成功！")           
+        if tpp4=='':
+        print("无图片")
+        return
+    else:
+        pushdeer.send_markdown(fasname, desp=tpp4)
+        print("推送到iPhonepushdeer成功！")
+
+               
 
 
