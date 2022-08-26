@@ -141,6 +141,31 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     }
     res = requests.post(url=url, json=FormData, headers=HEADERS)
     print(res.text)
+    res = res.text
+    jsonobj = json.loads(res)
+    toCntPercent = jsonobj['code']
+    if toCntPercent == 1001:
+        print("消息摘要过长，正在重试发送")
+        url = 'http://wxpusher.zjiecode.com/api/send/message'
+        HEADERS = {'Content-Type': 'application/json'}
+        FormData = {
+            "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
+            "content": content,
+            "summary": f"[普通]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp,
+            "contentType": 2,
+
+            "topicIds": [
+
+            ],
+            "uids": [
+                "UID_noWsar4x3r0zd4WqjCaoD5CIX9Xi"
+            ],
+            "url": ""
+        }
+        res = requests.post(url=url, json=FormData, headers=HEADERS)
+        print(res.text)
+    else:
+        print("消息摘要正常")
 
 #
 # if __name__ == '__main__':
