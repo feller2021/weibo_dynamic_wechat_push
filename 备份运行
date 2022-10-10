@@ -1,0 +1,40 @@
+name: 微博计划任务
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: '*/5 * * * *'
+  watch:
+    types: started
+  workflow_dispatch:
+
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: 初始化Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.7
+    - name: 'Install dependencies'
+      run: pip install -r requirements.txt
+    - name: '开始运行'
+      env:
+        pushkey: ${{ secrets.pushkey }}
+      run: python index.py    
+    - name: commit
+      run: |
+        git config --global user.email 2222@qq.com
+        git config --global user.name feller
+        git add .
+        git commit -m "update" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
