@@ -6,6 +6,7 @@ import requests, json, sys
 import getpic
 import content
 import htmljiexi
+import traceback
 
 
 class weiboMonitor():
@@ -17,7 +18,7 @@ class weiboMonitor():
             'Connection': 'close',
             'Accept-Language': 'zh-CN,zh;q=0.8,en-US;q=0.5,en;q=0.3'
         }
-        self.uid = ['6395178860', '1906286443', '6626748101', '6626748101', '5663590461', '5594559637',
+        self.uid = ['6395178860', '1906286443', '6626748101', '5663590461', '5594559637',
                      '7505006312', '7209505250', '6064752668', '3654410557', '5652423635', '2731935637',
                     '5923121748', '5661268657', '2919901662', '1739243731', '5404268788', '2408800551', '7595006312',
                     '2385341970', '1887816474', '2471768860', '2205641702', '7519401668', '2345988380', '5276062970',
@@ -37,8 +38,9 @@ class weiboMonitor():
                             'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s&containerid=%s' % (
                                 i, j['containerid']))
         except Exception as e:
-            self.echoMsg('Error', e)
-            sys.exit()
+            print(traceback.format_exc())
+            # self.echoMsg('Error', e)
+            # sys.exit()
 
     # 收集已经发布动态的id
     def getWBQueue(self):
@@ -55,6 +57,7 @@ class weiboMonitor():
             self.echoMsg('Info', '目前有 %s 条微博' % len(self.itemIds))
         except Exception as e:
             self.echoMsg('Error', e)
+            print(traceback.format_exc())
             sys.exit()
 
     # 开始监控
