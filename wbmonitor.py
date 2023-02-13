@@ -11,6 +11,7 @@ import traceback
 
 class weiboMonitor():
     def __init__(self, ):
+        # 'Connection':'close'的作用解决遇到报错HTTPSConnectionPool(host=‘xxxxx‘, port=443)
         self.reqHeaders = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:101.0) Gecko/20100101 Firefox/101.0',
             'Content-Type': 'application/x-www-form-urlencoded',
