@@ -90,6 +90,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     # string = 'Its after 12 noon, do you know where your rooftops are? http://tinyurl.com/NYCRooftops '
     url = re.findall(pattern, detalurl)
+    print("到底1")
     for urll in url:
         # print(urll)
         lianjie = urll
@@ -139,7 +140,9 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         ],
         "url": ""
     }
+    print("到底2")
     res = requests.post(url=url, json=FormData, headers=HEADERS)
+    print("到底3")
     print(res.text)
     res = res.text
     jsonobj = json.loads(res)
@@ -162,7 +165,9 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
             ],
             "url": ""
         }
+        print("到底4")
         res = requests.post(url=url, json=FormData, headers=HEADERS)
+        print("到底5")
         print(res.text)
     else:
         print("消息摘要正常")
