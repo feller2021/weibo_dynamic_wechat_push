@@ -125,6 +125,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     # print(content)
     url = 'http://wxpusher.zjiecode.com/api/send/message'
+    # 'Connection':'close'的作用解决遇到报错HTTPSConnectionPool(host=‘xxxxx‘, port=443)
     HEADERS = {'Content-Type': 'application/json','Connection':'close'}
     FormData = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
