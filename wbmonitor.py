@@ -79,6 +79,9 @@ class weiboMonitor():
                                 f.write(j['mblog']['id'] + '\n')
                             self.echoMsg('Info', '发微博!')
                             self.echoMsg('Info', '目前有 %s 条微博' % (len(itemIds) + 1))
+                            print("最新的是id："+str(j['mblog']['id']))
+                            dayin="https://m.weibo.cn/status/"
+                            print("最新的微博链接是："+dayin+str(j['mblog']['id']))
                             idd = str(j['mblog']['id'])
                             # 以下输出微博内容
 
