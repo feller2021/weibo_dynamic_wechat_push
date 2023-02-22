@@ -28,6 +28,7 @@ class weiboMonitor():
 
     # 获取访问连接
     def getweiboInfo(self):
+        print("# 获取访问连接")
         try:
             self.weiboInfo = []
             for i in self.uid:
@@ -51,6 +52,7 @@ class weiboMonitor():
 
     # 收集已经发布动态的id
     def getWBQueue(self):
+        print("# 收集已经发布动态的id")
         try:
             self.itemIds = []
             for i in self.weiboInfo:
@@ -69,6 +71,7 @@ class weiboMonitor():
 
     # 开始监控
     def startmonitor(self, ):
+        print("# 开始监控")
         returnDict = {}  # 获取微博相关内容
         try:
             itemIds = []
@@ -126,6 +129,7 @@ class weiboMonitor():
                             return returnDict
         except Exception as e:
             self.echoMsg('Error', e)
+            print("没有更新")
             sys.exit()
 
     # 格式化输出
