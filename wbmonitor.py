@@ -33,6 +33,8 @@ class weiboMonitor():
             self.weiboInfo = []
             for i in self.uid:
                 userInfo = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s' % (i)
+                print("i的值是："+i)
+                print("第 "+i+"---uid开始获取数据")
                 res = requests.get(userInfo, headers=self.reqHeaders)
                 # try 报错继续循环
                 try:
