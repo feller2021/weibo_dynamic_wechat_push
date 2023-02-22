@@ -33,11 +33,17 @@ class weiboMonitor():
             for i in self.uid:
                 userInfo = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s' % (i)
                 res = requests.get(userInfo, headers=self.reqHeaders)
-                for j in res.json()['data']['tabsInfo']['tabs']:
-                    if j['tab_type'] == 'weibo':
-                        self.weiboInfo.append(
-                            'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s&containerid=%s' % (
-                                i, j['containerid']))
+                # try 报错继续循环
+                try:
+                    for j in res.json()['data']['tabsInfo']['tabs']:
+                        if j['tab_type'] == 'weibo':
+                            self.weiboInfo.append(
+                                'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s&containerid=%s' % (
+                                    i, j['containerid']))
+                except Exception as e:
+                    pass
+                continue
+                
         except Exception as e:
             print(traceback.format_exc())
             # self.echoMsg('Error', e)
