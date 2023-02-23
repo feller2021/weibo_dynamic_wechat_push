@@ -146,8 +146,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     FormData = {
 
-        "desp": content,
-        "text": f"[普通]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay
+        'desp': content,
+        'text': f"[普通]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay
 
     }
 
@@ -182,8 +182,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
         FormData = {
 
-            "content": content,
-            "summary": f"[普通]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp
+            'text': content,
+            'desp': f"[普通]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp
 
         }
 
