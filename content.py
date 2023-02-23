@@ -124,10 +124,11 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     content = content.replace('\ "', '\"')
 
     # print(content)
-    url = 'http://wxpusher.zjiecode.com/api/send/message'
+    url2 = 'http://wxpusher.zjiecode.com/api/send/message'
+    url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
     # 'Connection':'close'的作用解决遇到报错HTTPSConnectionPool(host=‘xxxxx‘, port=443)
     HEADERS = {'Content-Type': 'application/json','Connection':'close'}
-    FormData = {
+    FormData2 = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
         "content": content,
         "summary": f"[普通]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay,
@@ -141,6 +142,14 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         ],
         "url": ""
     }
+
+    FormData = {
+
+        "desp": content,
+        "text": f"[普通]@" + fasname + '\n' + '微博发送时间：' + format_time + '\n' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '\n' + '▷' + picnum2 + '张图' + '\n' + '▷' + '推送时间：' + tzshj + ' ' + '\n' + '▷' + '延时推送：' + timedelay
+
+    }
+
     print("到底2")
     res = requests.post(url=url, json=FormData, headers=HEADERS,stream=True, verify=False)
     print("到底3")
@@ -150,9 +159,10 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     toCntPercent = jsonobj['code']
     if toCntPercent == 1001:
         print("消息摘要过长，正在重试发送")
-        url = 'http://wxpusher.zjiecode.com/api/send/message'
+        url2 = 'http://wxpusher.zjiecode.com/api/send/message'
+        url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
         HEADERS = {'Content-Type': 'application/json','Connection':'close'}
-        FormData = {
+        FormData2 = {
             "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
             "content": content,
             "summary": f"[普通]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp,
@@ -166,6 +176,16 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
             ],
             "url": ""
         }
+
+
+        FormData = {
+
+            "content": content,
+            "summary": f"[普通]@" + fasname + ';' + sourcel + ';' + format_time + ';' + picnum2 + '图' + isyuanchuang + isycsp
+
+        }
+
+
         print("到底4")
         res = requests.post(url=url, json=FormData, headers=HEADERS,stream=True, verify=False)
         print("到底5")
