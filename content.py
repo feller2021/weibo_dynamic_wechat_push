@@ -127,7 +127,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     url2 = 'http://wxpusher.zjiecode.com/api/send/message'
     url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
     # 'Connection':'close'的作用解决遇到报错HTTPSConnectionPool(host=‘xxxxx‘, port=443)
-    HEADERS = {'Content-Type': 'application/json','Connection':'close'}
+    HEADERS2 = {'Content-Type': 'application/json','Connection':'close'}
+    headers = {'Content-type': 'application/x-www-form-urlencoded'}
     FormData2 = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
         "content": content,
@@ -151,7 +152,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     }
 
     print("到底2")
-    res = requests.post(url=url, json=FormData, headers=HEADERS,stream=True, verify=False)
+    res = requests.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
     print("到底3")
     print(res.text)
     res = res.text
@@ -161,7 +162,8 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         print("消息摘要过长，正在重试发送")
         url2 = 'http://wxpusher.zjiecode.com/api/send/message'
         url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
-        HEADERS = {'Content-Type': 'application/json','Connection':'close'}
+        HEADERS2 = {'Content-Type': 'application/json','Connection':'close'}
+        headers = {'Content-type': 'application/x-www-form-urlencoded'}
         FormData2 = {
             "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
             "content": content,
@@ -187,7 +189,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
 
         print("到底4")
-        res = requests.post(url=url, json=FormData, headers=HEADERS,stream=True, verify=False)
+        res = requests.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
         print("到底5")
         print(res.text)
     else:
