@@ -11,7 +11,7 @@ import re
 import wbtxt
 import shipindizhi
 import bofangqi
-
+requests.packages.urllib3.disable_warnings()
 
 def trans_format(time_string, from_format, to_format='%Y.%m.%d %H:%M:%S'):
     """
