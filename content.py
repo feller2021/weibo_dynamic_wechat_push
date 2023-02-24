@@ -143,6 +143,9 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         ],
         "url": ""
     }
+    requests.adapters.DEFAULT_RETRIES = 5 # 增加重连次数
+    s = requests.session()
+    s.keep_alive = False # 关闭多余连接
 
     FormData = {
 
@@ -152,7 +155,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     }
 
     print("到底2")
-    res = requests.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
+    res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
     print("到底3")
     print(res.text)
     res = res.text
@@ -164,6 +167,9 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
         HEADERS2 = {'Content-Type': 'application/json','Connection':'close'}
         headers = {'Content-type': 'application/x-www-form-urlencoded','Connection':'close'}
+        requests.adapters.DEFAULT_RETRIES = 5 # 增加重连次数
+        s = requests.session()
+        s.keep_alive = False # 关闭多余连接
         FormData2 = {
             "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
             "content": content,
@@ -189,7 +195,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
 
         print("到底4")
-        res = requests.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
+        res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
         print("到底5")
         print(res.text)
     else:
