@@ -91,10 +91,12 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # string = 'Its after 12 noon, do you know where your rooftops are? http://tinyurl.com/NYCRooftops '
     url = re.findall(pattern, detalurl)
     print("到底1")
+    time.sleep(4)
     for urll in url:
         # print(urll)
         lianjie = urll
     lianjie2 = "<a href = " + lianjie + ">点击该链接打开微博</a>"
+    time.sleep(4)
 
     imgpost = 'https://push.bot.qw360.cn/send/3325bea0-9939-11ec-9d03-6b5ca40f70fe'
     # e54011f0-f9aa-11eb-806f-9354f453c154
@@ -155,6 +157,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     }
 
     print("到底2")
+    time.sleep(4)
     res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
     print("到底3")
     print(res.text)
@@ -195,6 +198,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
 
         print("到底4")
+        time.sleep(4)
         res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
         print("到底5")
         print(res.text)
