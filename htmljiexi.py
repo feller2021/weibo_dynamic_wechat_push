@@ -59,7 +59,7 @@ def getpiclast(idd):
                 for lis in pic:
                     jpg = 'https://image.baidu.com/search/down?url=https://wx4.sinaimg.cn/large/' + lis + '.jpg'
                     print(jpg)
-                    zuhe = "<img src=\"" + jpg + "\" >"
+                    zuhe = "<img style=max-width:100%; max-height:100%; src=\"" + jpg + "\" >"
                     tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
                     # repp = requests.post(url=imgpost, data=postdata, headers=headers)
@@ -76,7 +76,7 @@ def getpiclast(idd):
                 for lis2 in pic2:
                     jpg2 = 'https://image.baidu.com/search/down?url=https://wx4.sinaimg.cn/large/' + lis2 + '.jpg'
                     print(jpg2)
-                    zuhe = "<img src=\"" + jpg2 + "\" >"
+                    zuhe = "<img style=max-width:100%; max-height:100%; src=\"" + jpg2 + "\" >"
                     tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg2}})
                     # repp = requests.post(url=imgpost, data=postdata, headers=headers)
@@ -120,7 +120,7 @@ def getpiclast2(idd):
                     jpg = 'https://image.baidu.com/search/down?url=https://wx4.sinaimg.cn/large/' + lis + '.jpg'
                     print(jpg)
                     tupian88.append(jpg)
-                    zuhe = "<img src=\"" + jpg + "\" >"
+                    zuhe = "<img style=max-width:100%; max-height:100%; src=\"" + jpg + "\" >"
                     tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg}})
                     # repp = requests.post(url=imgpost, data=postdata, headers=headers)
@@ -138,7 +138,7 @@ def getpiclast2(idd):
                     jpg2 = 'https://image.baidu.com/search/down?url=https://wx4.sinaimg.cn/large/' + lis2 + '.jpg'
                     print(jpg2)
                     tupian88.append(jpg2)
-                    zuhe = "<img src=\"" + jpg2 + "\" >"
+                    zuhe = "<img style=max-width:100%; max-height:100%; src=\"" + jpg2 + "\" >"
                     tupian += zuhe
                     postdata = json.dumps({"msg": {"type": "image", "url": "%s" % jpg2}})
                     # repp = requests.post(url=imgpost, data=postdata, headers=headers)
@@ -149,7 +149,7 @@ def getpiclast2(idd):
                 # print(pic_num2)
             return tupian88
 
-
+#<img style=max-width:100%; max-height:100%; src=
 
 
 def mun(idd):
@@ -259,6 +259,6 @@ def iphonepushdeer(fasname, idd):
         pushdeer.send_markdown(fasname, desp=tpp4)
         print("推送到iPhonepushdeer成功！")
 
-               
+
 
 
