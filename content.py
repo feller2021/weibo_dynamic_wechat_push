@@ -128,7 +128,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
     # 'Connection':'close'的作用解决遇到报错HTTPSConnectionPool(host=‘xxxxx‘, port=443)
     HEADERS2 = {'Content-Type': 'application/json','Connection':'close'}
-    headers = {'Content-type': 'application/x-www-form-urlencoded'}
+    headers = {'Content-type': 'application/x-www-form-urlencoded','Connection':'close'}
     FormData2 = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
         "content": content,
@@ -163,7 +163,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
         url2 = 'http://wxpusher.zjiecode.com/api/send/message'
         url = 'http://iyuu.cn/IYUU19025Tb4ea638b00818568c60ffedd5ea4603af2fe962c.send'
         HEADERS2 = {'Content-Type': 'application/json','Connection':'close'}
-        headers = {'Content-type': 'application/x-www-form-urlencoded'}
+        headers = {'Content-type': 'application/x-www-form-urlencoded','Connection':'close'}
         FormData2 = {
             "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
             "content": content,
