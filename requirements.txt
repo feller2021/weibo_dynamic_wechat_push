@@ -3,3 +3,4 @@ requests
 lxml
 django
 pypushdeer
+pyopenssl
