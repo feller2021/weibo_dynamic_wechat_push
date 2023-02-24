@@ -158,7 +158,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
     print("到底2")
     time.sleep(4)
-    res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
+    res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False,timeout=30)
     print("到底3")
     print(res.text)
     res = res.text
@@ -199,7 +199,7 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
 
         print("到底4")
         time.sleep(4)
-        res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False)
+        res = s.post(url=url, data=FormData, headers=headers,stream=True, verify=False,timeout=30)
         print("到底5")
         print(res.text)
     else:
