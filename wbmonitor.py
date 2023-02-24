@@ -7,7 +7,7 @@ import getpic
 import content
 import htmljiexi
 import traceback
-
+requests.packages.urllib3.disable_warnings()
 
 class weiboMonitor():
     def __init__(self, ):
