@@ -6,6 +6,7 @@ import os
 import requests
 import re
 from lxml import etree
+requests.packages.urllib3.disable_warnings()
 # 防止图片403 添加前辍https://image.baidu.com/search/down?url=https://wx2.sinaimg.cn/large/006YNwa8ly1hazlyxznu4j32bc1jkx6p.jpg
 
 # https://m.weibo.cn/status/4669812238457985
