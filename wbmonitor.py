@@ -35,7 +35,7 @@ class weiboMonitor():
                 userInfo = 'https://m.weibo.cn/api/container/getIndex?type=uid&value=%s' % (i)
                 print("i的值是："+i)
                 print("第 "+i+"---uid开始获取数据")
-                res = requests.get(userInfo, headers=self.reqHeaders)
+                res = requests.get(userInfo, headers=self.reqHeaders,stream=True, verify=False,timeout=30)
                 # try 报错继续循环
                 try:
                     for j in res.json()['data']['tabsInfo']['tabs']:
@@ -58,7 +58,7 @@ class weiboMonitor():
         try:
             self.itemIds = []
             for i in self.weiboInfo:
-                res = requests.get(i, headers=self.reqHeaders)
+                res = requests.get(i, headers=self.reqHeaders,stream=True, verify=False,timeout=30)
                 with open('wbIds.txt', 'a') as f:
                     for j in res.json()['data']['cards']:
                         if j['card_type'] == 9:
@@ -82,7 +82,7 @@ class weiboMonitor():
                     line = line.strip('\n')
                     itemIds.append(line)
             for i in self.weiboInfo:
-                res = requests.get(i, headers=self.reqHeaders)
+                res = requests.get(i, headers=self.reqHeaders,stream=True, verify=False,timeout=30)
                 for j in res.json()['data']['cards']:
                     if j['card_type'] == 9:
                         if str(j['mblog']['id']) not in itemIds:
