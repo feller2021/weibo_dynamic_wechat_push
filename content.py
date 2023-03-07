@@ -109,8 +109,11 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     if isycsp != "":
         bofanshipin=bofangqi.bofang(idd)
         bofanshipin = str(bofanshipin)
+        print("有视频，视频是：")
+        print(isycsp)
     else:
         bofanshipin=''
+        print("没视频")
 
 
     fasongneir = '@' + fasname + '<br>' + '消息类型：普通推送' + '<br>' + format_time + ' ' + '来自 ' + sourcel + ' ' + '<br>' + '▷' + isyuanchuang + '微博' + ' ' + isycsp + '<br>' + '▷' + picnum2 + '张图' + ' ' + '<br>' + '▷' + deit + ' ' + reposts2 + '转' + ' ' + attitudes2 + '赞' + ' ' + comments2 + '评' + ' ' + '<br>' + '▷' + '推送时间：' + tzshj + ' ' + '<br>' + '▷' + '延时推送：' + timedelay + ' ' + '<br>' + '▷' + '原博链接：' + lianjie2 + ' ' + '<br>' + '------------------------' + '<br>' + braa + '<br>' + '------------------------'+'<br>'+bofanshipin
