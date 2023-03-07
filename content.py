@@ -131,6 +131,9 @@ def wbcontent(txt, createtime, sourcel, fasname, deit, reposts, attitudes, comme
     # 'Connection':'close'的作用解决遇到报错HTTPSConnectionPool(host=‘xxxxx‘, port=443)
     HEADERS2 = {'Content-Type': 'application/json','Connection':'close'}
     headers = {'Content-type': 'application/x-www-form-urlencoded','Connection':'close'}
+    print("-------要发送的内容如下-----")
+    print(content)
+    print("-------要发送的内容以下-----")
     FormData2 = {
         "appToken": "AT_iaPxpUE0FLNUECu1zFnKhFR7R9NU5K8e",
         "content": content,
